@@ -7,11 +7,13 @@
 
 > To get started with this project, you will need to have the following installed on your machine:
 
+```
 -[Node.js]
 -[NPM] or [Yarn]
 -[Git]
 -[Strapi]
 -[React.js]
+```
 
 ## Installation
 
