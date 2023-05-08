@@ -45,7 +45,17 @@ If both commands display version numbers, Node.js and npm are installed and work
 - If the [Strapi] installation fails, go back to your [terminal] or [cmd] and enter yarn config set network-timeout 600000 -g
 to extend the timeout.
 
-4. Install the Packages needed
+4. Install Git
+
+- Go to this website (https://git-scm.com/downloads)
+
+- Download the latest version of Git
+
+- Install the .exe file.
+
+- If unsure how to install, go to this website (https://phoenixnap.com/kb/how-to-install-git-windows)
+
+5. Install the Packages needed
 ```
 [axios] - npm install axios
 [bootstrap] - npm install bootstrap
