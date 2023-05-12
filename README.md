@@ -1,3 +1,8 @@
+# Link to Video Presentation
+```
+https://drive.google.com/file/d/1hXTiHNwLOPEEhYoz6Xr4OYcy29RS_JiB/view?usp=sharing
+```
+
 # midterm-project
 ## React.js and Strapi Authentication Project
 
