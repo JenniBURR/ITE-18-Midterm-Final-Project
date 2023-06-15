@@ -8,6 +8,11 @@ https://drive.google.com/file/d/1hXTiHNwLOPEEhYoz6Xr4OYcy29RS_JiB/view?usp=shari
 
 This is a project that aims to provide a simple and efficient way to implement user authentication in a [React.js]application using [Strapi] as the backend API.
 
+# final-project
+## The Implementation of Cat API!
+
+This is a project that aims to fully implement a functioning Cat API, which randomly generates Cat Pictures/GIFs as well as press a button to randomly generate a new batch of adorable cats!
+
 ## Prerequisites
 
 To get started with this project, you will need to have the following installed on your machine:
@@ -196,6 +201,99 @@ the terminal to your url bar to open the application.
 6. If you are done registering, it should redirect you to the LOGIN page again.
 7. LOGIN with your email and password. If done right you would be redirected to the HOME page.
 8. LOGOUT after you are done.
+
+## Cat API
+
+The Cat API is a service that provides access to a collection of cat images and information. It allows you to fetch random cat images, search for specific breeds, and more.
+
+### Random Cat Image
+
+To fetch a random cat image, you can make a GET request to the following endpoint:
+- (GET https://api.example.com/cats/random)
+
+
+This will return a JSON response containing a random cat image URL. You can then use this URL to display the cat image on your website or application.
+
+### Search Cat Breeds
+
+To search for cat breeds, you can make a GET request to the following endpoint:
+-- (GET https://api.example.com/cats/breeds?q=<search_query>)
+  
+
+Replace `<search_query>` with your desired search term. The API will return a JSON response containing a list of cat breeds that match the search query.
+
+...
+
+(Provide additional examples or API endpoints as needed)
+
+# Updated Implementation of Cat API in my Homepage!
+```
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import CustomNav from "../CustomNav";
+import { userData } from "../../helpers";
+import "./Home.css";
+import backgroundMusic from "../music/vermilion_town.mp3";
+
+const Home = () => {
+  const { username } = userData();
+  const [catImages, setCatImages] = useState([]);
+
+  useEffect(() => {
+    fetchCatImages();
+    const audio = new Audio(backgroundMusic);
+    audio.loop = true;
+    audio.play();
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  const fetchCatImages = () => {
+    axios
+      .get("https://api.thecatapi.com/v1/images/search?limit=9")
+      .then((response) => {
+        const catImageUrls = response.data.map((image) => image.url);
+        setCatImages(catImageUrls);
+      })
+      .catch((error) => {
+        console.error("Error fetching cat images:", error);
+      });
+  };
+
+  return (
+    <div>
+      <CustomNav />
+      <div className="home">
+        <h1>Welcome to Cat Moments, {username}</h1>
+        <div className="header">
+          <h2>Random Cat Generator!</h2>
+          <p>Here's your Randomly Generated Cats using Cat API!</p>
+        </div>
+        <div className="button-container">
+          <button onClick={fetchCatImages}>Generate More Cat Images</button>
+        </div>
+        <div className="cat-images">
+          {catImages.map((imageUrl, index) => (
+            <img
+              key={index}
+              src={imageUrl}
+              alt={`Cat ${index + 1}`}
+              className="cat-image"
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+```
+
+
 
 
 
