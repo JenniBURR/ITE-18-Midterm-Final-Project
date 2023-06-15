@@ -217,7 +217,7 @@ This will return a JSON response containing a random cat image URL. You can then
 ### Search Cat Breeds
 
 To search for cat breeds, you can make a GET request to the following endpoint:
--- (GET https://api.example.com/cats/breeds?q=<search_query>)
+- (GET https://api.example.com/cats/breeds?q=<search_query>)
   
 
 Replace `<search_query>` with your desired search term. The API will return a JSON response containing a list of cat breeds that match the search query.
