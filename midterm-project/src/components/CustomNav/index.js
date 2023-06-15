@@ -17,7 +17,7 @@ const CustomNav = () => {
     <div className="custom-nav">
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/" className="mr-auto">
-          Bread Directory
+          Random Cat Generator
         </NavbarBrand>
         <NavbarToggler onClick={toggle} className="mr-2" />
         <Collapse isOpen={isOpen} navbar>

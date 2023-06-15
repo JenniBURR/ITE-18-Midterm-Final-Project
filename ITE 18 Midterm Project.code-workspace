@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../strapi-tutorials-full-stack-login"
+		},
+		{
+			"path": "../catapp-master"
+		}
+	],
+	"settings": {}
+}

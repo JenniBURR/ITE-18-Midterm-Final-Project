@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(189, 108, 88) 20%;
   color: #fdfdfd;
 }
 
@@ -31,17 +30,34 @@ code {
 .login {
   min-height: 100vh;
   align-items: center;
-  background: linear-gradient(
-    90deg,
-    rgb(189, 108, 88) 20%,
-    rgb(196, 52, 27) 56%,
-    rgba(189, 108, 88) 20%
-  );
+  background-color: #f7f7f7;
+  background-image: url("../src/components/images/cat.jpg");
+  background-repeat: repeat;
+}
+
+.login h1 {
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.login h2{
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
 }
 
 .login h6 {
   margin-top: 15px;
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
 }
+
+.login-container {
+  background-color: rgba(242, 242, 242, 0.8); 
+  padding: 20px;
+  border-radius: 10px; 
+}
+
+
 
 /* End Login */
 
@@ -49,16 +65,31 @@ code {
 .register {
   min-height: 100vh;
   align-items: center;
-  background: linear-gradient(
-    90deg,
-    rgba(189, 108, 88) 20,
-    rgba(196, 52, 27) 56%,
-    rgba(189, 108, 88) 20
-  );
+  background-color: #ffffff;
+  background-image: url("../src/components/images/cat.jpg");
+  background-repeat: repeat;
+}
+
+.register h1 {
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.register h2{
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
 }
 
 .register h6 {
   margin-top: 15px;
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.register-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 /* End register */

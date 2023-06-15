@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import { 
-    Col, 
-    Row, 
-    Button, 
-    FormGroup, 
-    Input 
-} from "reactstrap";
+import { Col, Row, Button, FormGroup, Input } from "reactstrap";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,40 +11,46 @@ const Login = () => {
   const [user, setUser] = useState(initialUser);
   const navigate = useNavigate();
 
-  const handleChange = ({target}) => {
-    const {name, value}= target;
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
     setUser((currentUser) => ({
-        ...currentUser,
-        [name]: value,
-    }))
+      ...currentUser,
+      [name]: value,
+    }));
   };
 
-  const handleLogin =  async () => {
+  const handleLogin = async () => {
     const url = `http://localhost:1337/api/auth/local`;
     try {
-        if(user.identifier && user.password){
-            const {data} = await axios.post(url, user)
-            if(data.jwt){
-                storeUser(data);
-                toast.success("Logged in successfully!", {
-                    hideProgressBar: true,
-                });
-                setUser(initialUser)
-                navigate('/')
-            }
-        }
-    } catch (error) {
-        toast.error(error.message, {
+      if (user.identifier && user.password) {
+        const { data } = await axios.post(url, user);
+        if (data.jwt) {
+          storeUser(data);
+          toast.success("Logged in successfully!", {
             hideProgressBar: true,
-        });  
+          });
+          setUser(initialUser);
+          navigate("/");
+        }
+      }
+    } catch (error) {
+      toast.error(error.message, {
+        hideProgressBar: true,
+      });
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleLogin();
     }
   };
 
   return (
     <Row className="login">
       <Col sm="12" md={{ size: 4, offset: 4 }}>
-        <div>
-          <h1>Bread Directory</h1>
+        <div className="login-container">
+          <h1>Cat Moments</h1>
           <h2>Login</h2>
           <FormGroup>
             <Input
@@ -58,7 +58,7 @@ const Login = () => {
               name="identifier"
               value={user.identifier}
               onChange={handleChange}
-              placeholder="Enter your email"
+              placeholder="Email"
             />
           </FormGroup>
           <FormGroup>
@@ -67,14 +67,15 @@ const Login = () => {
               name="password"
               value={user.password}
               onChange={handleChange}
-              placeholder="Enter password"
+              onKeyDown={handleKeyPress}
+              placeholder="Password"
             />
           </FormGroup>
           <Button color="primary" onClick={handleLogin}>
             Login
           </Button>
           <h6>
-            Click <Link to='/registration'>Here</Link> to Sign up!
+            Click <Link to="/registration">Here</Link> to Sign up!
           </h6>
         </div>
       </Col>
