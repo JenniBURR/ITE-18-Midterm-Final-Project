@@ -222,10 +222,6 @@ To search for cat breeds, you can make a GET request to the following endpoint:
 
 Replace `<search_query>` with your desired search term. The API will return a JSON response containing a list of cat breeds that match the search query.
 
-...
-
-(Provide additional examples or API endpoints as needed)
-
 # Updated Implementation of Cat API in my Homepage!
 ```
 import React, { useEffect, useState } from "react";
